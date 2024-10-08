@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form with Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: url(background\ contact\ form.jpg) no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: opacity 0.5s ease;  /* For transition */
+        }
+
+        .contact-container {
+            display: flex;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .contact-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .contact-form {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4facfe; /* Gradient start */
+            background-image: linear-gradient(to right, #00f2fe, #4facfe); /* Gradient */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .form-group button:hover {
+            background-image: linear-gradient(to right, #0077b6, #00f2fe); /* Darker gradient on hover */
+        }
+    </style>
+    <script>
+        function transitionToContact() {
+            document.body.style.opacity = 0;  // Fade out effect
+            setTimeout(function() {
+                window.location.href = "contact.html";  // Redirect to contact page
+            }, 500);  // Wait for 500ms before redirect
+        }
+    </script>
+</head>
+<body>
+
+    <div class="contact-container">
+        <div class="contact-image">
+            <img src="mail-removebg-preview.png" alt="Contact Illustration">
+        </div>
+
+        <div class="contact-form">
+            <h2>Have Some Questions?</h2>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <input type="text" name="first-name" placeholder="First Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="last-name" placeholder="Last Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="What's your email?" required>
+                </div>
+                <div class="form-group">
+                    <textarea name="question" placeholder="Your questions..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
