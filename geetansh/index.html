@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Link to the Satisfy font -->
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Satisfy&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400..900&display=swap" rel="stylesheet">
+    <title>Odoo-like Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+        }
+        header {
+            background-color: #fff;
+            max-height: 30px; /* Set a maximum height for the header */
+            overflow: hidden;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            
+        }
+        .logo img{
+            padding-top: 15px;
+            width: 200px; /* Adjust this value as needed */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 190px;
+            object-fit: contain;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        header button {
+            background-color: #8e44ad;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f9f9f9;
+            font-family: sans-serif;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .highlight-orange {
+            color: #000000;
+            padding: 0 10px;
+            display: inline-block;
+            background: url(orangecolor-removebg-preview.png);
+            background-repeat: no-repeat;
+            background-size: 300px 80px;
+        }
+        .highlight-blue {
+            background-color: #00BFFF;
+            padding: 0 5px;
+            display: inline-block;
+        }
+        .seya{
+            font-family: "Kalam", cursive;
+            font-weight: 300;
+            font-style: normal;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .cta-buttons button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .cta-buttons .primary {
+            background-color: #8e44ad;
+            color: white;
+        }
+        .cta-buttons .secondary {
+            background-color: #f3e5f5;
+            color: #8e44ad;
+        }
+        .arrow-note {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #663399;
+        }
+        .dropdown-menu, .industry-dropdown, .community-dropdown {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background-color: #f0f0f0;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown-menu.show, .industry-dropdown.show, .community-dropdown.show {
+            display: block;
+        }
+        .apps-grid, .industry-grid, .community-grid {
+            display: flex;
+            justify-content: space-around;
+        }
+        .apps-category, .industry-category, .community-category {
+            width: 30%;
+        }
+        .apps-category h3, .industry-category h3, .community-category h3 {
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            color: #6a1b9a;
+        }
+        .apps-category ul, .industry-category ul, .community-category ul {
+            list-style: none;
+            padding: 0;
+        }
+        .apps-category ul li, .industry-category ul li, .community-category ul li {
+            padding: 5px 0;
+            color: #333;
+        }
+        
+        footer a:hover {
+        color: #FFA500; /* Change link color on hover */
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="Uni-removebg.png" alt="Logo">
+        </div>
+        <nav>
+            <a id="apps-link"style="color:#000000">Apps <i class="fa-solid fa-caret-down"></i></a>
+            <a id="industries-link"style="color:#000000">Industries <i class="fa-solid fa-caret-down"></i></a>
+            <a id="community-link"style="color:#000000">Community <i class="fa-solid fa-caret-down"></i></a>
+            <a href="#"style="color:#000000">Pricing</a>
+            <a href="contact.html" style="color:#000000; text-decoration: none;" onclick="transitionToContact">Contact</a>
+
+        </nav>
+        <button>Try it free</button>
+    </header>
+
+    <!-- Dropdown Apps Section -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <div class="apps-grid">
+            <div class="apps-category">
+                <h3>Finance</h3>
+                <ul>
+                    <li>Accounting</li>
+                    <li>Invoicing</li>
+                    <li>Expenses</li>
+                    <li>Spreadsheet (BI)</li>
+                    <li>Documents</li>
+                    <li>Sign</li>
+                </ul>
+            </div>
+            <div class="apps-category">
+                <h3>Websites</h3>
+                <ul>
+                    <li>Website Builder</li>
+                    <li>eCommerce</li>
+                    <li>Blog</li>
+                    <li>Forum</li>
+                    <li>Live Chat</li>
+                    <li>eLearning</li>
+                </ul>
+            </div>
+            <div class="apps-category">
+                <h3>Supply Chain</h3>
+                <ul>
+                    <li>Inventory</li>
+                    <li>Manufacturing</li>
+                    <li>PLM</li>
+                    <li>Purchase</li>
+                    <li>Maintenance</li>
+                    <li>Quality</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Dropdown Industries Section -->
+    <div class="industry-dropdown" id="industry-dropdown">
+        <div class="industry-grid">
+            <div class="industry-category">
+                <h3>Retail</h3>
+                <ul>
+                    <li>Book Store</li>
+                    <li>Clothing Store</li>
+                    <li>Hardware Store</li>
+                </ul>
+            </div>
+            <div class="industry-category">
+                <h3>Services</h3>
+                <ul>
+                    <li>Odoo Partner</li>
+                    <li>Real Estate</li>
+                    <li>Talent Acquisition</li>
+                </ul>
+            </div>
+            <div class="industry-category">
+                <h3>Supply Chain</h3>
+                <ul>
+                    <li>Beverage Distributor</li>
+                    <li>Corporate Gifts</li>
+                    <li>Custom Furniture Production</li>
+                </ul>
+            </div>
+            <div class="industry-category">
+                <h3>Construction</h3>
+                <ul>
+                    <li>Construction</li>
+                    <li>Gardening</li>
+                    <li>Solar Energy</li>
+                </ul>
+            </div>
+            <div class="industry-category">
+                <h3>Hospitality</h3>
+                <ul>
+                    <li>Bar and Pub</li>
+                    <li>Fast Food</li>
+                    <li>Fine Dining Restaurant</li>
+                </ul>
+            </div>
+            <div class="industry-category">
+                <h3>Health & Fitness</h3>
+                <ul>
+                    <li>Fitness Center</li>
+                    <li>Sports Club</li>
+                    <li>Wellness Practitioners</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+ <!-- Dropdown Community Section -->
+    <div class="community-dropdown" id="community-dropdown">
+        <div class="community-grid">
+            <div class="community-category">
+                <h3>Community Resources</h3>
+                <ul>
+                    <li>Forums</li>
+                    <li>Documentation</li>
+                    <li>Blogs</li>
+                </ul>
+            </div>
+            <div class="community-category">
+                <h3>Events</h3>
+                <ul>
+                    <li>Meetups</li>
+                    <li>Webinars</li>
+                    <li>Workshops</li>
+                </ul>
+            </div>
+            <div class="community-category">
+                <h3>Support</h3>
+                <ul>
+                    <li>Help Center</li>
+                    <li>Community Chat</li>
+                    <li>Issue Tracker</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <section class="hero">
+        <h1 style="font-family: 'Satisfy', cursive; font-size: 80px;margin-bottom: 5px">All your <span style="color:#975e64">buisness on </span> <span class="highlight-orange">one platform</span>.</h1>
+        <p class="seya" style="font-size: 70px; margin-top: 5px; margin-bottom: 20px;">Simple, efficient, yet affordable!</p>
+        <div class="cta-buttons">
+            <button class="primary">Start now - It's free</button>
+            <button class="secondary">Schedule a demo</button>
+        </div>
+        <div class="arrow-note">
+            580.00 Rs / month for ALL apps
+        </div>
+    </section>
+
+    <footer style="background-color: #213a5c; color: #fff; padding: 40px 20px;font-family: 'Maven Pro', sans-serif;">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <img src="Uni-removebg.png" alt="logo" style="max-width: 150px; height: auto;">
+        </div>
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                <h3 style="border-bottom: 2px solid #fff; padding-bottom: 10px;">About Us</h3>
+                <ul style="list-style: none; padding: 0;"></ul>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s">Our company</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Brand Assets</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Contact us</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Jobs</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Events</a></li>
+            </div>
+            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                <h3 style="border-bottom: 2px solid #fff; padding-bottom: 10px;">Quick Links</h3>
+                <ul style="list-style: none; padding: 0;">
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Home</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Apps</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Industries</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Community</a></li>
+                    <li><a href="#" style="color: #dadddf; text-decoration: none; transition: color 0.3s;">Contact</a></li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                <h3 style="border-bottom: 2px solid #fff; padding-bottom: 10px;">Contact Information</h3>
+                <p style="margin: 2px; color:#dadddf">Email: info@odoojob.com</p>
+                <p style="margin: 2px; color: #dadddf">Phone: +123 456 7890</p>
+            </div>
+            <div style="flex: 1; min-width: 200px; margin: 10px;">
+                <h3 style="border-bottom: 2px solid #fff; padding-bottom: 10px;">Follow Us</h3>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <img src="facebook logo.png" alt="Facebook" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <img src="twitter.png" alt="Twitter" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <img src="linkedin.png" alt="LinkedIn" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="#" style="color: #fff; text-decoration: none;">
+                        <img src="instagram.png" alt="Instagram" style="width: 24px; height: 24px;">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <p style="font-size: 0.9rem;">&copy; 2024 Odoo Job. All Rights Reserved.</p>
+        </div>
+    </footer>
+    
+      
+
+    <script>
+        // Get dropdown elements
+        var dropdownMenu = document.getElementById("dropdown-menu");
+        var industryDropdown = document.getElementById("industry-dropdown");
+        var communityDropdown = document.getElementById("community-dropdown");
+
+        // Get link elements
+        var appsLink = document.getElementById("apps-link");
+        var industriesLink = document.getElementById("industries-link");
+        var communityLink = document.getElementById("community-link");
+
+        // Toggle Apps dropdown and close others
+        appsLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            dropdownMenu.classList.toggle("show");
+            industryDropdown.classList.remove("show");
+            communityDropdown.classList.remove("show");
+        });
+
+        // Toggle Industry dropdown and close others
+        industriesLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            industryDropdown.classList.toggle("show");
+            dropdownMenu.classList.remove("show");
+            communityDropdown.classList.remove("show");
+        });
+
+        // Toggle Community dropdown and close others
+        communityLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            communityDropdown.classList.toggle("show");
+            dropdownMenu.classList.remove("show");
+            industryDropdown.classList.remove("show");
+        });
+
+        // Close dropdowns if clicking outside of them
+        document.addEventListener("click", function(event) {
+            // Close Apps dropdown if clicking outside
+            if (!dropdownMenu.contains(event.target) && !appsLink.contains(event.target)) {
+                dropdownMenu.classList.remove("show");
+            }
+
+            // Close Industry dropdown if clicking outside
+            if (!industryDropdown.contains(event.target) && !industriesLink.contains(event.target)) {
+                industryDropdown.classList.remove("show");
+            }
+
+            // Close Community dropdown if clicking outside
+            if (!communityDropdown.contains(event.target) && !communityLink.contains(event.target)) {
+                communityDropdown.classList.remove("show");
+            }
+        });
+        
+        // Get the contact link and form elements
+        const contactLink = document.getElementById("contactLink");
+        const contactForm = document.getElementById("contactForm");
+        const closeFormButton = document.getElementById("closeForm");
+
+        // Event listener to open the contact form when the link is clicked
+        contactLink.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            contactForm.style.display = "block"; // Show the form
+        });
+
+        // Event listener to close the form when the close button is clicked
+        closeFormButton.addEventListener("click", function() {
+            contactForm.style.display = "none"; // Hide the form
+        });
+
+        // Function to create a smooth transition to the contact page
+        function transitionToContact() {
+            // Set opacity to 0 to create fade-out effect
+            document.body.style.transition = "opacity 0.5s";  // Adjust the time for the fade effect
+            document.body.style.opacity = 0;
+
+            // Wait for the transition to complete before redirecting to the new page
+            setTimeout(function() {
+                window.location.href = "contact.html";  // Redirect to the contact page
+            }, 500);  // Wait for the fade-out effect to finish (500ms matches the transition time)
+        }
+
+
+
+    </script>
+    
+
+</body>
+</html>
